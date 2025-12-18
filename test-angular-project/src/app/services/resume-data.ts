@@ -7,7 +7,7 @@ import { Resume } from '../models/resume.model';
   providedIn: 'root',
 })
 export class ResumeDataService {
-  private apiUrl = 'http://localhost:5000/api/users';
+  private apiUrl = 'https://resumebuilderapplicationproject.onrender.com/api/users';
   private resume: Resume;
 
   constructor(private http: HttpClient) {   // ✅ Inject HttpClient here
@@ -107,3 +107,4 @@ export class ResumeDataService {
     return this.http.get(`${this.apiUrl}?email=${email}`);
   }
 }
+
