@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="editable-resume">
+        <h1>Edit Resume</h1>
+
+        <div class="left-column">
+            <label for="photo"></label>
+            <input 
+                type="file" 
+                id="photo" 
+                (change)="onFileSelected($event)" 
+                accept="image/*"
+            />
+            <small class="photo-guideline">
+                Please upload a photo with equal width and height
+            </small>
+
+            <label for="name">Name:</label>
+            <input id="name" [(ngModel)]="resume.name" type="text"/>
+
+            <label for="email">Email</label>
+            <input type="email" [(ngModel)]="resume.email" id="email"/>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" [(ngModel)]="resume.phone"/>
+
+            <label for="links">Links</label>
+            <div *ngFor="let _ of [1,2,3,4]; let i = index">
+                <input [(ngModel)]="resume.links[i]" type="text"/>
+            </div>
+
+            <label for="languages">Languages</label>
+            <div *ngFor="let _ of [1,2,3,4]; let i = index">
+                <input [(ngModel)]="resume.languages[i]" type="text"/>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <label for="aboutMe">About Me:</label>
+            <textarea id="aboutMe" [(ngModel)]="resume.aboutMe" rows="6"></textarea>
+
+            <label for="skills">Skills</label>
+            <div *ngFor="let _ of [1,2,3,4]; let i = index">
+                <input [(ngModel)]="resume.skills[i]" type="text"/>
+            </div>
+
+            <label for="experience">Experience</label>
+            <div *ngFor="let _ of [1,2,3,4]; let i = index">
+                <input [(ngModel)]="resume.experience[i]" type="text"/>
+            </div>
+
+            <label for="education">Education</label>
+            <div *ngFor="let _ of [1,2,3,4]; let i = index">
+                <input [(ngModel)]="resume.education[i]" type="text"/>
+            </div>
+
+            <label for="projects">Projects:</label>
+            <div *ngFor="let _ of [1,2,3]; let i = index">
+                <input [(ngModel)]="resume.projects[i]!.name" type="text">
+                <textarea 
+                 [(ngModel)]="resume.projects[i]!.description" 
+                 rows="4"
+                ></textarea>
+            </div>
+
+            <label for="courses">Courses</label>
+            <div *ngFor="let _ of [1,2,3,4]; let i = index">
+                <input [(ngModel)]="resume.courses[i]" type="text">
+            </div>
+        </div>
+    </div>
+</div>
